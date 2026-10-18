@@ -1,0 +1,4 @@
+interface:
+  display_name: "Short Video Editor"
+  short_description: "Edit clips into polished vertical social videos"
+  default_prompt: "Use $short-video-editor to turn my clips into a concise vertical video with a clear hook and smooth transitions."
