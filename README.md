@@ -2,7 +2,7 @@
 
 Turn your clips into a short vertical video with Codex: a clear hook, readable titles, smooth transitions and an MP4 ready to post.
 
-**[Download skill](https://github.com/Benedict30/short-video-editor/raw/main/downloads/short-video-editor.zip)**
+**[Download skill](https://github.com/Benedict30/short-video-editor/raw/main/skill.zip)**
 
 ## Try it
 
