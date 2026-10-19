@@ -130,7 +130,8 @@ def render(args):
   for i in range(1,len(info)):
    ov=overlaps[i]
    if ov:g += [f'[{pv}][v{i}]xfade=transition={types[i]}:duration={ov}:offset={elapsed-ov}[vx{i}]',f'[{pa}][a{i}]acrossfade=d={ov}:c1=tri:c2=tri[ax{i}]']
-   else:g += [f'[{pv}][v{i}]concat=n=2:v=1:a=0[vx{i}]',f'[{pa}][a{i}]concat=n=2:v=0:a=1[ax{i}]']
+   # concat changes the timebase and frame-rate metadata; a later xfade needs CFR.
+   else:g += [f'[{pv}][v{i}]concat=n=2:v=1:a=0,fps={fps},settb=1/{fps},setpts=PTS-STARTPTS[vx{i}]',f'[{pa}][a{i}]concat=n=2:v=0:a=1[ax{i}]']
    pv,pa=f'vx{i}',f'ax{i}';elapsed+=info[i]['duration']-ov
   if music:
    mv=float(music.get('volume',.25));fade=min(total,float(music.get('fade_out',1.2)))
