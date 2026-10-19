@@ -7,6 +7,16 @@ description: Edit supplied clips or screen captures into concise vertical videos
 
 Produce the actual edited video, using the user's clips, reference style and accepted copy. A plan or storyboard alone is not the deliverable.
 
+## Set up missing tools
+
+Handle dependency setup as part of the edit; the user does not need a separate setup prompt.
+
+- Before invoking the renderer, identify the execution environment and check for a working Python 3 interpreter, FFmpeg and FFprobe. Reuse compatible tools already installed or provided by the environment. Check Python directly first: the renderer cannot check dependencies if Python is missing. On Windows, `py -3` or `python` may be the available Python 3 command.
+- If a required tool is missing, briefly explain what you will install and install only the missing dependencies within the session's authorization and permissions. Prefer the environment's existing package manager and trusted repositories. Verify the package names for that platform; do not upgrade unrelated packages or replace a working Python installation.
+- If there is no suitable package manager, use an official installer or an official-project-linked portable distribution suited to the platform. Inspect the provider's current installation instructions before running them. Do not install a new system package manager merely to complete this edit. If installation requires a password, elevation, network access or an approval that is unavailable, report the specific blocker and the minimum user action needed. Do not bypass a denial or claim setup completed.
+- After installation, resolve the executable paths again in the current session. Use the resolved Python 3 interpreter for `scripts/render.py --check`; use a session-local PATH for FFmpeg and FFprobe if necessary. Confirm the required FFmpeg features and a usable font when titles are needed. Continue editing once the checks pass. If a compatible tool already exists, do not reinstall it because it was absent from the initial PATH.
+- Do not install OBS for editing existing footage. Only consider it for a requested OBS recording.
+
 ## Edit
 
 - Inspect the footage, duration, audio and representative frames. Identify the outcome worth showing first and one simple narrative. Preserve approved wording and masks across revisions.
@@ -18,7 +28,7 @@ Produce the actual edited video, using the user's clips, reference style and acc
 
 ## Render
 
-Use `python3 scripts/render.py --check` to check Python, FFmpeg, FFprobe and caption font availability. No Python packages are required. The installed FFmpeg must support `libx264`, `xfade`, `acrossfade`, and `drawtext` when adding titles. OBS is only needed when the task includes an OBS recording.
+After setup, use `python3 scripts/render.py --check` (or the resolved Python 3 command) to check FFmpeg, FFprobe and caption font availability. No extra Python packages are required. The installed FFmpeg must support `libx264`, `xfade`, `acrossfade`, and `drawtext` when adding titles. OBS is only needed when the task includes an OBS recording.
 
 Create a timeline JSON following [references/timeline.md](references/timeline.md), then run:
 

@@ -9,17 +9,17 @@ Turn your clips into a short vertical video with Codex: a clear hook, readable t
 1. Put the skill ZIP and your video in a folder. Open that folder in Codex with local file and tool access.
 2. Paste:
 
-> Install this skill and set up Python 3 and FFmpeg if needed. Use $short-video-editor to make a short vertical video with a strong hook and smooth transitions. Export an MP4.
+> Install this skill. Use $short-video-editor to make a short vertical video with a strong hook and smooth transitions. Export an MP4.
 
 3. Follow any setup prompts, then review your MP4.
 
 ## What you need
 
-- **Editing:** Python 3 and FFmpeg (including FFprobe). No extra Python packages are needed. Titles require a font.
+- **Setup is included:** Codex checks for Python 3 and FFmpeg (including FFprobe), installs missing tools where permitted, verifies them, then continues editing. No extra Python packages are needed. Titles require a font.
 - **OBS is optional:** install it only if you want to record your screen with OBS. It captures footage; Python and FFmpeg make the final edit.
 - Automated OBS recording also needs a supported computer-control tool. Existing clips do not need OBS or a Chrome plugin.
 
-The skill checks for missing tools; it does not install them automatically. Codex can help set them up where your environment and permissions allow.
+You do not need a separate setup prompt. Setup runs through Codex when you use the skill; downloading the ZIP alone does not install software. Your computer may still require an installation approval or administrator password. If setup is blocked, Codex explains the specific action needed.
 
 ## Included
 
